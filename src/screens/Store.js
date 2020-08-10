@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import PostNewForm from "../components/post_new_ad_modal";
-import {get} from "../server/fetch";
+import {getStore} from "../server/fetch";
 import StoreItem from "../components/storeItem";
 import Navbar from "../components/navbar";
 
@@ -11,7 +11,7 @@ function Store() {
         window.scrollTo(0, 0);
 
         if (data === undefined) {
-            get("/shop").then(r => {
+            getStore().then(r => {
                 getData(r)
             })
         }

@@ -3,8 +3,8 @@ import info from "./info";
 
 let token = localStorage.getItem('token')
 
-export function get(endpoint, params) {
-    return fetch(info.URI + endpoint, {method: 'get',})
+export function getStore() {
+    return fetch(info.URI + '/shop', {method: 'get',})
         .then(function (response) {
             return response.json();
         }).then(function (data) {
@@ -32,14 +32,11 @@ export function signup(data) {
     var urlencoded = new URLSearchParams();
     urlencoded.append("email", data.email);
     urlencoded.append("password", data.password);
-    urlencoded.append("firstName", data.firstName);
-    urlencoded.append("lastName", data.lastName);
 
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        body: urlencoded,
-        redirect: 'follow'
+        body: urlencoded
     };
 
     return fetch(info.URI + "/signup", requestOptions)
@@ -148,6 +145,40 @@ export function addAnswer(data, qid) {
         .then(response => response.json())
         .then(result => {
             console.log(result)
+            return result
+        })
+        .catch(error => console.log('error', error));
+}
+
+export function getProfile() {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer "+token);
+
+    let requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+    return fetch(info.URI + "/profile", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            return result
+        })
+        .catch(error => console.log('error', error));
+}
+
+export function delete_QUESTION_ADS(type, id) {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer "+token);
+
+    let requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+    return fetch(info.URI + "/delete/"+type+"/"+id, requestOptions)
+        .then(response => response.json())
+        .then(result => {
             return result
         })
         .catch(error => console.log('error', error));

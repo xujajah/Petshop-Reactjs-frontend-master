@@ -4,8 +4,6 @@ import {signup} from "../server/fetch";
 import Navbar from "../components/navbar";
 
 function SignUpScreen() {
-    let [firstName, setFirstName] = useState("")
-    let [lastName, setLastName] = useState("")
     let [email, setEmail] = useState("")
     let [password, setPassword] = useState("")
 
@@ -17,8 +15,6 @@ function SignUpScreen() {
     function submitForm() {
         let data = {};
         data.email = email;
-        data.lastName = lastName;
-        data.firstName = firstName;
         data.password = password;
 
         signup(data).then(r => {
@@ -41,23 +37,10 @@ function SignUpScreen() {
 
                             <div className="col-md-6 ml-auto">
 
-                                <form className="text-center" id="signup" onSubmit={() => submitForm()}>
+                                <form className="text-center" id="signup"
+                                      onSubmit={event => {submitForm(); event.preventDefault()}}>
 
                                     <p className="h4 mb-4">Sign up</p>
-
-                                    <div className="form-row mb-4">
-                                        <div className="col">
-                                            <input type="text" id="defaultRegisterFormFirstName"
-                                                   className="form-control"
-                                                   placeholder="First name" required={true}
-                                                   onChange={event => setFirstName(event.target.value)}/>
-                                        </div>
-                                        <div className="col">
-                                            <input type="text" id="defaultRegisterFormLastName" className="form-control"
-                                                   placeholder="Last name" required={true}
-                                                   onChange={event => setLastName(event.target.value)}/>
-                                        </div>
-                                    </div>
 
                                     <input type="email" id="defaultRegisterFormEmail" className="form-control mb-4"
                                            placeholder="E-mail" required={true}

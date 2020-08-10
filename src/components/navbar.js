@@ -89,21 +89,22 @@ function Navbar() {
                                 </a>
                             </Link>
                             }
-                            {isAuthenticated === true && <Link to={'/'}>
+                            {isAuthenticated === true && <div className="d-flex">
+                                <Link to={'/profile'}>
 
-                                <a onClick={() => logout()} className={"nav-link waves-effect btn btn-sm btn-primary"}>
-                                    Logout {getEmailFromId(token1)}<i
-                                    className={"fas fa-user-plus"}>
-                                </i>
-                                </a>
+                                    <a className={"nav-link waves-effect btn btn-sm btn-primary"}>
+                                        Profile <i className={"fas fa-user"}/>
+                                    </a>
+                                </Link>
 
-                            </Link> && <Link to={'/profile'}>
-
-                                <a className={"nav-link waves-effect btn btn-sm btn-primary"}>
-                                    Profile
-                                </a>
-
-                            </Link>
+                                <Link to={'/'}>
+                                    <a onClick={() => logout()} className={"nav-link waves-effect btn btn-sm btn-danger"}>
+                                        Logout {getEmailFromId(token1)}<i
+                                        className={"fa fa-sign-out-alt"}>
+                                    </i>
+                                    </a>
+                                </Link>
+                            </div>
                             }
 
 

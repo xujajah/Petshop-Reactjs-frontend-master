@@ -70,7 +70,7 @@ function PostNewForm() {
                                             onChange={event => setCategory(event.target.value)}>
                                         <option selected disabled>Select Category</option>
                                         <option value="cat">Cat</option>
-                                        <option value="2dog">Dog</option>
+                                        <option value="dog">Dog</option>
                                         <option value="horse">Horse</option>
                                         <option value="fish">Fish</option>
                                         <option value="bird">Birds</option>

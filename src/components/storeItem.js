@@ -31,7 +31,7 @@ function StoreItem({item}) {
                     </a>
                     <h4 className="card-title py-0 my-0">
                         <strong>
-                            <a href="" className="font-weight-bold">{item.title}</a>
+                            <a href='#' data-toggle="modal" data-target={"#modal-" + item._id} className="font-weight-bold">{item.title}</a>
                         </strong>
                     </h4>
                     <p className="card-text">{item.description}
