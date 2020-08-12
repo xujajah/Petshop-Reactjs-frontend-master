@@ -1,6 +1,34 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {contact, login, signup} from "../server/fetch";
 
 function Contact() {
+
+    let [email, setEmail] = useState("")
+    let [name, setName] = useState("")
+    let [subject, setSubject] = useState("")
+    let [message, setMessage] = useState("")
+
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+
+    })
+    function submitForm() {
+        let data = {
+            email: email,
+            name: name,
+            subject: subject,
+            message: message
+        };
+        console.log(data)
+        contact(data).then(r => {
+            if (r.status ===1){
+                alert("Email Sent.")
+            }
+        })
+    }
+
     return (
 
         <div className="container py-5">
@@ -12,6 +40,7 @@ function Contact() {
                 <div className="card">
                     <div className="row">
                         <div className="col-lg-12">
+                            <form onSubmit={event => {submitForm(); event.preventDefault()}} id={"contact-form"}>
                             <div className="card-body form">
                                 <h2 className={'h2 h2-responsive font-weight-bold text-center'}>Contact Us</h2>
                                 <h2 className={'h5 h5-responsive font-weight-bold text-center'}>
@@ -20,14 +49,16 @@ function Contact() {
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="md-form mb-0">
-                                            <input type="text" id="form-contact-name" className="form-control"/>
-                                            <label htmlFor="form-contact-name" className="">Your name</label>
+                                            <input type="text" className="form-control mb-4"
+                                                   placeholder="Name" required={true}
+                                                   onChange={event => setName(event.target.value)}/>
                                         </div>
                                     </div>
                                     <div className="col-md-6">
                                         <div className="md-form mb-0">
-                                            <input type="text" id="form-contact-email" className="form-control"/>
-                                            <label htmlFor="form-contact-email" className="">Your email</label>
+                                            <input type="email" className="form-control mb-4"
+                                                   placeholder="E-mail" required={true}
+                                                   onChange={event => setEmail(event.target.value)}/>
                                         </div>
                                     </div>
 
@@ -36,8 +67,9 @@ function Contact() {
 
                                     <div className="col-md-12">
                                         <div className="md-form mb-0">
-                                            <input type="text" id="form-contact-phone" className="form-control"/>
-                                            <label htmlFor="form-contact-phone" className="">Subject</label>
+                                            <input type="text" className="form-control mb-4"
+                                                   placeholder="Subject" required={true}
+                                                   onChange={event => setSubject(event.target.value)}/>
                                         </div>
                                     </div>
 
@@ -45,16 +77,17 @@ function Contact() {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="md-form mb-0">
-                                                <textarea id="form-contact-message" className="form-control md-textarea"
-                                                          rows="3"/>
-                                            <label htmlFor="form-contact-message">Your message</label>
+                                            <textarea type="text" className="form-control mb-4 px-3 rounded"
+                                                   rows="4" placeholder="Message" required={true}
+                                                   onChange={event => setMessage(event.target.value)}/>
                                         </div>
-                                        <button className={"btn btn-info rounded mt-2"}>SEND</button>
+                                        <button className={"btn btn-info rounded mt-2"} type="submit">SEND</button>
                                     </div>
 
                                 </div>
 
                             </div>
+                            </form>
 
                         </div>
                         <div className="col-lg-12">

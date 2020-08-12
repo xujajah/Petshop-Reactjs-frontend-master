@@ -11,7 +11,6 @@ import {
 } from "react-router-dom";
 import {login} from "../server/fetch";
 import Home from "./Home";
-import SuccessToast from "../components/sucess";
 import Navbar from "../components/navbar";
 
 
@@ -79,11 +78,6 @@ function LoginScreen() {
                                             <input type="password" required={true}
                                                    className="form-control" placeholder="Password"
                                                    onChange={event => setPassword(event.target.value)}/>
-
-                                            <small id="passwordHelpBlock"
-                                                   className="form-text text-right blue-text text-center">
-                                                <a href="">Recover Password</a>
-                                            </small>
 
                                             <div className="text-center">
                                                 <button type="submit" className="btn btn-primary btn-rounded my-4 waves-effect">Log In

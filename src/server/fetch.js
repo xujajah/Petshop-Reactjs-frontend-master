@@ -183,3 +183,29 @@ export function delete_QUESTION_ADS(type, id) {
         })
         .catch(error => console.log('error', error));
 }
+export function contact(data) {
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+    let urlencoded = new URLSearchParams();
+
+    urlencoded.append("email", data.email);
+    urlencoded.append("name", data.name);
+    urlencoded.append("subject", data.subject);
+    urlencoded.append("message", data.message);
+
+
+    let requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: 'follow'
+    };
+
+    return fetch(info.URI + "/contact", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            return result
+        })
+        .catch(error => console.log('error', error));
+}
