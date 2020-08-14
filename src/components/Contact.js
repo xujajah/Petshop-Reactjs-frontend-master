@@ -25,6 +25,7 @@ function Contact() {
         contact(data).then(r => {
             if (r.status ===1){
                 alert("Email Sent.")
+                window.location.reload();
             }
         })
     }

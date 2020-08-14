@@ -95,7 +95,8 @@ function Discussion() {
                                 <div className="modal-dialog" role="document">
                                     <div className="modal-content">
                                         <div className="modal-header">
-                                            <h5 className="modal-title" id="exampleModalLabel">{item.question}</h5>
+                                            <h5 className="modal-title" id="exampleModalLabel">{item.question}
+                                            </h5>
                                             <button type="button" className="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -125,10 +126,10 @@ function Discussion() {
                                                 <table
                                                     className="table table-striped table-sm table-borderless mx-auto table-scroll-vertical">
                                                     <tbody>
-                                                    {console.log(comment)}
                                                     <tr>
                                                         <td>
-                                                            <span className="text-primary font-small font-weight-bold">{comment.author.email.split("@")[0]}: </span> {comment.text}</td>
+                                                            <span className="text-primary font-small font-weight-bold">{comment.author.email.split("@")[0]}: </span> {comment.text}
+                                                        </td>
                                                     </tr>
                                                     </tbody>
                                                 </table>

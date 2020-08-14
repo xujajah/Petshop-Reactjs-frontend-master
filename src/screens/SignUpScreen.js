@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../css/App.css';
 import {signup} from "../server/fetch";
 import Navbar from "../components/navbar";
+import {Redirect} from "react-router-dom";
 
 function SignUpScreen() {
     let [email, setEmail] = useState("")
@@ -19,14 +20,14 @@ function SignUpScreen() {
 
         signup(data).then(r => {
             alert(r.message + "\n Please login now!")
-
+            window.location = '/loginScreen';
         })
+
     }
 
     return (
         <div className={"login-background"}>
             <Navbar/>
-
             <section>
 
                 <div className="container mt-5 py-5">
@@ -58,7 +59,7 @@ function SignUpScreen() {
                                     <button className="btn btn-info my-4 btn-block" type="submit">Sign in</button>
                                     <hr/>
                                     <p>By clicking
-                                        <em> Sign up</em> you agree to our terms of service
+                                        <em> Sign in</em> you agree to our terms of service
                                     </p>
 
                                 </form>

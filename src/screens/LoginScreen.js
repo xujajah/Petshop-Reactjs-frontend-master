@@ -37,6 +37,8 @@ function LoginScreen() {
             if (r.token) {
                 localStorage.setItem('token', r.token);
                 setLoggedIN(true)
+                window.location = '/';
+                window.location.reload();
 
             } else if (r.error) {
                 alert(r.error)
@@ -46,14 +48,9 @@ function LoginScreen() {
         })
     }
 
-    function Red() {
-        return (<Redirect to={'/'}/>)
-    }
-
     return (
         <div className={"login-background"}>
             <Navbar/>
-            {loggedin === true && <Red/>}
             <container>
                 <section className="p-5 mt-md-5 ">
 
