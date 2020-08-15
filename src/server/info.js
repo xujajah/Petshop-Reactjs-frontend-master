@@ -1,3 +1,3 @@
 export default ({
-    URI: "https://web-pets-backend.herokuapp.com"
+    URI: "http://localhost:3000"
 })

@@ -23,7 +23,12 @@ function Contact() {
         };
         console.log(data)
         contact(data).then(r => {
-            if (r.status ===1){
+            console.log(r)
+            if (r === undefined){
+
+                alert("An error occured")
+            }
+            else{
                 alert("Email Sent.")
                 window.location.reload();
             }

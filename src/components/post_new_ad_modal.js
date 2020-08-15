@@ -33,11 +33,20 @@ function PostNewForm() {
         };
 
         postAdvertisement(data).then(r => {
-            if (r.title){
-                alert(r.title + " has been posted!")
-            }else{
-                alert("You need to login first.")
+            console.log(r)
+            if(r === undefined){
+                alert("login first")
+                window.location = '/loginScreen';
             }
+            else{
+                alert(r.title + " has been posted!")
+                window.location.reload();
+            }
+            // if (r.title){
+            //     alert(r.title + " has been posted!")
+            // }else{
+            //     alert("You need to login first.")
+            // }
         })
     }
 

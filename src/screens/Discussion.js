@@ -24,11 +24,20 @@ function Discussion() {
         };
         postNewQuestion(data).then(r => {
             console.log(r);
-            if (r._id) {
-                getData(undefined)
+            // if (r._id) {
+            //     getData(undefined)
+            //     window.location.reload();
+            // }
+            // else {
+            //     alert("Can not post.")
+            // }
+            if(r === undefined){
+                alert("login first")
+                window.location = '/loginScreen';
+            }
+            else{
+                alert("Question Posted.")
                 window.location.reload();
-            } else {
-                alert("Can not post.")
             }
         })
     }
@@ -39,11 +48,17 @@ function Discussion() {
         };
         addAnswer(data, qid).then(r => {
             console.log(r);
-            if (r.n === 1) {
+            // if (r.n === 1) {
+            //     alert("Answer Posted.")
+            //     window.location.reload();
+            // }
+            if(r === undefined){
+                alert("login first")
+                window.location = '/loginScreen';
+            }
+            else{
                 alert("Answer Posted.")
                 window.location.reload();
-            } else {
-                alert("Please login first.")
             }
         })
     }

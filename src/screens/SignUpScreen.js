@@ -17,8 +17,8 @@ function SignUpScreen() {
         let data = {};
         data.email = email;
         data.password = password;
-
         signup(data).then(r => {
+            console.log(r)
             alert(r.message + "\n Please login now!")
             window.location = '/loginScreen';
         })

@@ -38,10 +38,9 @@ function LoginScreen() {
                 localStorage.setItem('token', r.token);
                 setLoggedIN(true)
                 window.location = '/';
-                window.location.reload();
 
             } else if (r.error) {
-                alert(r.error)
+                alert("email password does not match")
             } else {
                 alert("Failed...")
             }
