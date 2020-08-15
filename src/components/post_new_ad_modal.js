@@ -100,9 +100,9 @@ function PostNewForm() {
                                     <select className="browser-default custom-select mb-2"
                                             onChange={event => setType(event.target.value)}>
                                         <option selected disabled>Select Type</option>
-                                        <option value="1">Sale</option>
-                                        <option value="2">Relocate</option>
-                                        <option value="3">Engage</option>
+                                        <option value="sale">Sale</option>
+                                        <option value="relocate">Relocate</option>
+                                        <option value="engage">Engage</option>
                                     </select>
                                     <select className="browser-default custom-select mb-2"
                                             onChange={event => setCity(event.target.value)}>
