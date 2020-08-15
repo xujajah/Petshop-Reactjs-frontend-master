@@ -1,3 +1,3 @@
 export default ({
-    URI: "https://bluepawsbackend.herokuapp.com/"
+    URI: "https://bluepawsbackend.herokuapp.com"
 })
